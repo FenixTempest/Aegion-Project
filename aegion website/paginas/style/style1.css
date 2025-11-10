@@ -1,0 +1,39 @@
+:root{
+    --BGC: burlywood;
+}
+
+body{
+    background-color: var(--BGC);
+}
+
+.menu1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 5px;
+    size: 25px;
+    gap: 2px;
+}
+.menu1 a{
+    display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: goldenrod;
+    color: black;
+    display: inline-block;
+    padding: 10px 25px 10px;
+    text-decoration: none;
+    border: 3px solid var(--BGC);
+}
+@media(max-width: 746px){
+    .menu1{
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+.menu1 a:hover{
+    
+    
+    background-color: gold;
+    border: 3px solid black;
+    
+}

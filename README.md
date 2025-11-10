@@ -1,10 +1,10 @@
-## Apartado: Mejoras implementadas (resumen técnico)
+## Section: Implemented improvements (technical summary)
 
-Resumen
-- Se añadió un efecto de interacción en `.menu1 a`: elevación y ligera escala combinadas con un brillo holográfico cyan.
-- Se introdujeron variables CSS para facilitar la personalización de colores y tipografía base.
+Summary
+- An interaction effect was added to `.menu1 a`: elevation and slight scaling combined with a cyan holographic glow.
+- CSS variables were introduced to make it easier to customize colors and base typography.
 
-Variables CSS (uso)
+CSS variables (usage)
 ```css
 :root{
   --BGC: burlywood;
@@ -17,16 +17,16 @@ body{
 }
 ```
 
-Transiciones y optimización (código relevante)
+Transitions and optimization (relevant code)
 ```css
 transition: transform .25s cubic-bezier(.2,.9,.2,1), box-shadow .25s ease, border-color .25s ease;
 will-change: transform, box-shadow;
 transform-origin: center;
 ```
-- Propósito: controlar la animación (duración y easing) y permitir optimizaciones de renderizado.
-- Detalle: `transform` usa cubic-bezier para una aceleración ágil; `will-change` sugiere al motor que optimice `transform` y `box-shadow`; `transform-origin: center` garantiza escala simétrica.
+- Purpose: to control the animation (duration and easing) and allow rendering optimizations.
+- Detail: `transform` uses a cubic-bezier for a snappy acceleration; `will-change` hints to the engine to optimize `transform` and `box-shadow`; `transform-origin: center` ensures symmetric scaling.
 
-Efecto en estado `:hover` (código relevante)
+Effect in `:hover` state (relevant code)
 ```css
 transform: translateY(-6px) scale(1.04);
 box-shadow:
@@ -34,11 +34,11 @@ box-shadow:
   0 0 14px rgba(0,255,255,0.30);
 border-color: rgba(0,255,255,0.9);
 ```
-- Propósito: aplicar la interacción visual al pasar el cursor (hover/focus).
-- Detalle: `translateY` y `scale` producen elevación y aumento ligero; `box-shadow` en dos capas separa la percepción de profundidad (sombra desplazada) del brillo cromático (glow cyan); `border-color` se tiñe para reforzar el acento.
+- Purpose: to apply the visual interaction on cursor hover (hover/focus).
+- Detail: `translateY` and `scale` produce elevation and a slight increase; the two-layer `box-shadow` separates the perception of depth (offset shadow) from the chromatic glow (cyan glow); `border-color` is tinted to reinforce the accent.
 
-Consideraciones rápidas
-- Rendimiento: animar `transform` y `box-shadow` es eficiente si se usa `will-change` de forma limitada.
-- Accesibilidad: añadir `@media (prefers-reduced-motion: reduce)` y estilos para `:focus-visible` es recomendable.
+Quick considerations
+- Performance: animating `transform` and `box-shadow` is efficient if `will-change` is used sparingly.
+- Accessibility: adding `@media (prefers-reduced-motion: reduce)` and styles for `:focus-visible` is recommended.
 
-(Valores y opacidades pueden ajustarse para afinar intensidad y velocidad del efecto.)
+(Values and opacities can be adjusted to fine-tune the intensity and speed of the effect.)
